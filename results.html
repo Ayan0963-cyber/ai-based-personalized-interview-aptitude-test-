@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block title %}Performance Report{% endblock %}
+{% block content %}
+<section class="report-head"><span class="eyebrow">YOUR PERFORMANCE REPORT</span><h1>Great effort, {{ student.name }}!</h1><p class="muted">Here is your aptitude performance and next step.</p></section>
+<section class="report-grid">
+  <article class="score-card"><div class="score-ring">{{ ((score/total)*100)|int }}%</div><h2>{{ score }} / {{ total }}</h2><p>Aptitude Score</p></article>
+  <article class="feature"><h3>Topic-wise Performance</h3>{% for topic, values in topic_scores.items() %}<p class="topic-line">{{ topic }} <b>{{ values[0] }}/{{ values[1] }}</b></p><div class="progress"><i style="width:{{ (values[0]/values[1])*100 }}%"></i></div>{% endfor %}</article>
+  <article class="recommend"><h3>💡 Personalized Recommendation</h3><p>Practice more questions from topics where your score is low. Revise concepts and attempt another test.</p><a class="btn" href="{{ url_for('aptitude', number=1) }}">Start New Test →</a></article>
+</section>
+<section class="feature"><h2>Interview Answers</h2>{% for answer in interview_answers %}<p><b>Answer {{ loop.index }}:</b> {{ answer or "Not answered" }}</p>{% endfor %}</section>
+<a class="btn" href="{{ url_for('dashboard') }}">Go to Dashboard →</a>
+{% endblock %}

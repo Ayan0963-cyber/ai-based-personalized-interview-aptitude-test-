@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block title %}Interview Preparation{% endblock %}
+{% block content %}
+<section class="form-card"><span class="eyebrow">🎤 INTERVIEW PREPARATION · {{ role }}</span><h1>Practice Your Interview</h1>
+<p class="muted">Answer these five role-based questions. Your answers will appear in your report.</p>
+<form method="POST">
+{% for question in questions %}
+<label>Q{{ loop.index }}. {{ question }}</label><textarea name="answer{{ loop.index0 }}" rows="3" placeholder="Type your answer here..." oninput="this.nextElementSibling.textContent=this.value.trim().split(/\s+/).filter(Boolean).length + ' words'"></textarea><small class="word-count">0 words</small>
+{% endfor %}
+<button class="btn full">Submit Interview Answers →</button></form></section>
+{% endblock %}

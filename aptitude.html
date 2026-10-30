@@ -1,0 +1,20 @@
+{% extends "base.html" %}{% block title %}Aptitude Test{% endblock %}
+{% block content %}
+<section class="test-layout">
+  <aside class="side-card"><h3>📝 Aptitude Test</h3><p class="muted">Question {{ number }} of {{ total }}</p>
+    <div class="topic-list"><span>1. Quantitative Aptitude</span><span>2. Logical Reasoning</span><span>3. Verbal Ability</span><span>4. Technical Aptitude</span></div>
+  </aside>
+  <section class="question-card">
+    <div class="progress-row"><b>Question {{ number }} of {{ total }}</b><span>{{ ((number/total)*100)|int }}% completed</span></div>
+    <div class="progress"><i style="width:{{ (number/total)*100 }}%"></i></div>
+    <span class="eyebrow">{{ q.topic }}</span><h2>Q{{ number }}. {{ q.q }}</h2>
+    <form method="POST">
+      {% for option in q.options %}
+      <label class="option"><input type="radio" name="answer" value="{{ option }}" {% if selected == option %}checked{% endif %} required><span>{{ option }}</span></label>
+      {% endfor %}
+      <div class="actions">{% if number > 1 %}<a class="btn btn-light" href="{{ url_for('aptitude', number=number-1) }}">← Previous</a>{% endif %}
+      <button class="btn">{% if number == total %}Finish Test ✓{% else %}Next →{% endif %}</button></div>
+    </form>
+  </section>
+</section>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}{% block title %}SkillPrep AI | Home{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy"><span class="eyebrow">✦ AI POWERED LEARNING</span>
+    <h1>Your Personal <em>Interview & Aptitude</em> Preparation Partner</h1>
+    <p>Get personalized practice, smart recommendations and build confidence for your dream job.</p>
+    <a class="btn" href="{{ url_for('profile') }}">Start Now →</a>
+    <a class="btn btn-light" href="#features">Watch Demo</a>
+  </div>
+  <div class="hero-art"><div class="orbit">✦</div><div class="person">👨🏻‍💻</div><div class="float-card">🧠 Aptitude Test</div><div class="float-card second">🎤 Interview Prep</div><div class="plant">🌿</div></div>
+</section>
+<section id="features" class="feature-grid">
+  <article class="feature"><b>📝</b><h3>20+ Aptitude Questions</h3><p>Quantitative, logical, verbal and technical practice.</p></article>
+  <article class="feature"><b>🎯</b><h3>Role-Based Interview</h3><p>Practice questions based on your target job role.</p></article>
+  <article class="feature"><b>📊</b><h3>Performance Analysis</h3><p>Understand your score and areas to improve.</p></article>
+  <article class="feature"><b>📈</b><h3>Track Your Progress</h3><p>Use your report to plan your next practice session.</p></article>
+</section>
+{% endblock %}

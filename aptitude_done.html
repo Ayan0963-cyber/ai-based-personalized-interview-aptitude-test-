@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Test Completed{% endblock %}
+{% block content %}
+<section class="success-card"><div class="trophy">🏆</div><h1>Aptitude Test Completed!</h1><p>You have successfully completed all 20 questions.</p>
+<div class="score-big">{{ score }}/{{ total }}</div><p class="muted">Correct answers</p>
+<a class="btn" href="{{ url_for('interview') }}">Continue to Interview →</a></section>
+{% endblock %}

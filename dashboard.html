@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block title %}Dashboard{% endblock %}
+{% block content %}
+<section class="report-head"><span class="eyebrow">STUDENT DASHBOARD</span><h1>Welcome back, {{ student.name }} 👋</h1><p class="muted">Your learning space for {{ student.role }} preparation.</p></section>
+<section class="feature-grid">
+<article class="feature"><b>📝</b><h3>Aptitude Practice</h3><p>20 questions across four topics.</p><a href="{{ url_for('aptitude', number=1) }}">Take New Test →</a></article>
+<article class="feature"><b>🎤</b><h3>Interview Prep</h3><p>Practice role-based interview questions.</p><a href="{{ url_for('interview') }}">Practice Now →</a></article>
+<article class="feature"><b>📊</b><h3>Performance</h3><p>Review your latest report.</p><a href="{{ url_for('results') }}">View Report →</a></article>
+</section>
+{% endblock %}
